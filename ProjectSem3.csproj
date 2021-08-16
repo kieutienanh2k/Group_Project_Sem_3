@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -112,12 +118,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -168,8 +168,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -183,10 +185,43 @@
     <Compile Include="Migrations\202108100845501_AddressAdd.Designer.cs">
       <DependentUpon>202108100845501_AddressAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108150342435_AddTableOrder.cs" />
+    <Compile Include="Migrations\202108150342435_AddTableOrder.Designer.cs">
+      <DependentUpon>202108150342435_AddTableOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108150412532_AddTablePayment.cs" />
+    <Compile Include="Migrations\202108150412532_AddTablePayment.Designer.cs">
+      <DependentUpon>202108150412532_AddTablePayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108150425533_AddTableOrderDetail.cs" />
+    <Compile Include="Migrations\202108150425533_AddTableOrderDetail.Designer.cs">
+      <DependentUpon>202108150425533_AddTableOrderDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108150453147_AddTableRecipe.cs" />
+    <Compile Include="Migrations\202108150453147_AddTableRecipe.Designer.cs">
+      <DependentUpon>202108150453147_AddTableRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108150505463_AddTableBook.cs" />
+    <Compile Include="Migrations\202108150505463_AddTableBook.Designer.cs">
+      <DependentUpon>202108150505463_AddTableBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108150607478_AddColumnPriceForBook.cs" />
+    <Compile Include="Migrations\202108150607478_AddColumnPriceForBook.Designer.cs">
+      <DependentUpon>202108150607478_AddColumnPriceForBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108150636463_AddColumnDescriptionForRecipe.cs" />
+    <Compile Include="Migrations\202108150636463_AddColumnDescriptionForRecipe.Designer.cs">
+      <DependentUpon>202108150636463_AddColumnDescriptionForRecipe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SaleEntities\Book.cs" />
+    <Compile Include="Models\SaleEntities\Order.cs" />
+    <Compile Include="Models\SaleEntities\OrderDetail.cs" />
+    <Compile Include="Models\SaleEntities\Payment.cs" />
+    <Compile Include="Models\SaleEntities\Recipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -251,6 +286,16 @@
     <Content Include="Views\Role\Index.cshtml" />
     <Content Include="Views\Role\CreateRole.cshtml" />
     <Content Include="Views\Users\AsignRole.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Delete.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Recipes\Create.cshtml" />
+    <Content Include="Views\Recipes\Delete.cshtml" />
+    <Content Include="Views\Recipes\Details.cshtml" />
+    <Content Include="Views\Recipes\Edit.cshtml" />
+    <Content Include="Views\Recipes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +319,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108100845501_AddressAdd.resx">
       <DependentUpon>202108100845501_AddressAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108150342435_AddTableOrder.resx">
+      <DependentUpon>202108150342435_AddTableOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108150412532_AddTablePayment.resx">
+      <DependentUpon>202108150412532_AddTablePayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108150425533_AddTableOrderDetail.resx">
+      <DependentUpon>202108150425533_AddTableOrderDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108150453147_AddTableRecipe.resx">
+      <DependentUpon>202108150453147_AddTableRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108150505463_AddTableBook.resx">
+      <DependentUpon>202108150505463_AddTableBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108150607478_AddColumnPriceForBook.resx">
+      <DependentUpon>202108150607478_AddColumnPriceForBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108150636463_AddColumnDescriptionForRecipe.resx">
+      <DependentUpon>202108150636463_AddColumnDescriptionForRecipe.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

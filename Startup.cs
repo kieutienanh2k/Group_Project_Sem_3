@@ -32,6 +32,7 @@ namespace ProjectSem3
 
                 var user = new ApplicationUser();
                 user.UserName = "anhktth1909006@fpt.edu.vn";
+                user.Address = "Son Tay";
                 user.Email = "anhktth1909006@fpt.edu.vn";
 
                 string userPWD = "Kieutienanh38.";
