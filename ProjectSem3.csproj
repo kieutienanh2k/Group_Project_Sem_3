@@ -169,8 +169,10 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\FeedbacksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaymentsController.cs" />
     <Compile Include="Controllers\RecipesController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -213,11 +215,20 @@
     <Compile Include="Migrations\202108150636463_AddColumnDescriptionForRecipe.Designer.cs">
       <DependentUpon>202108150636463_AddColumnDescriptionForRecipe.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108170848597_AddTableFeedback.cs" />
+    <Compile Include="Migrations\202108170848597_AddTableFeedback.Designer.cs">
+      <DependentUpon>202108170848597_AddTableFeedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108171043540_AddErrorRoleNotExistAdmin.cs" />
+    <Compile Include="Migrations\202108171043540_AddErrorRoleNotExistAdmin.Designer.cs">
+      <DependentUpon>202108171043540_AddErrorRoleNotExistAdmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SaleEntities\Book.cs" />
+    <Compile Include="Models\SaleEntities\Feedback.cs" />
     <Compile Include="Models\SaleEntities\Order.cs" />
     <Compile Include="Models\SaleEntities\OrderDetail.cs" />
     <Compile Include="Models\SaleEntities\Payment.cs" />
@@ -296,6 +307,16 @@
     <Content Include="Views\Recipes\Details.cshtml" />
     <Content Include="Views\Recipes\Edit.cshtml" />
     <Content Include="Views\Recipes\Index.cshtml" />
+    <Content Include="Views\Feedbacks\Create.cshtml" />
+    <Content Include="Views\Feedbacks\Delete.cshtml" />
+    <Content Include="Views\Feedbacks\Details.cshtml" />
+    <Content Include="Views\Feedbacks\Edit.cshtml" />
+    <Content Include="Views\Feedbacks\Index.cshtml" />
+    <Content Include="Views\Payments\Create.cshtml" />
+    <Content Include="Views\Payments\Delete.cshtml" />
+    <Content Include="Views\Payments\Details.cshtml" />
+    <Content Include="Views\Payments\Edit.cshtml" />
+    <Content Include="Views\Payments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,6 +361,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108150636463_AddColumnDescriptionForRecipe.resx">
       <DependentUpon>202108150636463_AddColumnDescriptionForRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108170848597_AddTableFeedback.resx">
+      <DependentUpon>202108170848597_AddTableFeedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108171043540_AddErrorRoleNotExistAdmin.resx">
+      <DependentUpon>202108171043540_AddErrorRoleNotExistAdmin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

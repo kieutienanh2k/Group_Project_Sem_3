@@ -27,6 +27,8 @@ namespace ProjectSem3.Models
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<Feedback> Feedbacks { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -40,6 +42,10 @@ namespace ProjectSem3.Models
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Order>()
+                .HasRequired(c => c.User)
+                .WithMany()
+                .WillCascadeOnDelete(false);
+            modelBuilder.Entity<Feedback>()
                 .HasRequired(c => c.User)
                 .WithMany()
                 .WillCascadeOnDelete(false);
