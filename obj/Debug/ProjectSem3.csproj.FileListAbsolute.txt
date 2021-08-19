@@ -229,3 +229,5 @@ C:\Sem3\github_desktop_project\Group_Project_Sem_3\Group_Project_Sem_3\obj\Debug
 C:\Sem3\github_desktop_project\Group_Project_Sem_3\Group_Project_Sem_3\obj\Debug\ProjectSem3.Migrations.AddTableFeedback.resources
 C:\Sem3\github_desktop_project\Group_Project_Sem_3\Group_Project_Sem_3\obj\Debug\ProjectSem3.csprojAssemblyReference.cache
 C:\Sem3\github_desktop_project\Group_Project_Sem_3\Group_Project_Sem_3\obj\Debug\ProjectSem3.Migrations.AddErrorRoleNotExistAdmin.resources
+C:\Sem3\github_desktop_project\Group_Project_Sem_3\Group_Project_Sem_3\obj\Debug\ProjectSem3.Migrations.AddPriceForRecipe.resources
+C:\Sem3\github_desktop_project\Group_Project_Sem_3\Group_Project_Sem_3\obj\Debug\ProjectSem3.Migrations.UpdateTypePriceOfRecipeNull.resources

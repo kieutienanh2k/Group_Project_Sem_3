@@ -13,6 +13,7 @@ namespace ProjectSem3.Models.SaleEntities
         public string Name { get; set; }
         public string Author { get; set; }
         public string Description { get; set; }
+        public decimal? Price { get; set; }
 
         public ICollection<OrderDetail> OrderDetails { get; set; }
     }

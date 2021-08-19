@@ -223,6 +223,14 @@
     <Compile Include="Migrations\202108171043540_AddErrorRoleNotExistAdmin.Designer.cs">
       <DependentUpon>202108171043540_AddErrorRoleNotExistAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202108190754280_AddPriceForRecipe.cs" />
+    <Compile Include="Migrations\202108190754280_AddPriceForRecipe.Designer.cs">
+      <DependentUpon>202108190754280_AddPriceForRecipe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202108190811502_UpdateTypePriceOfRecipeNull.cs" />
+    <Compile Include="Migrations\202108190811502_UpdateTypePriceOfRecipeNull.Designer.cs">
+      <DependentUpon>202108190811502_UpdateTypePriceOfRecipeNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -367,6 +375,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202108171043540_AddErrorRoleNotExistAdmin.resx">
       <DependentUpon>202108171043540_AddErrorRoleNotExistAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108190754280_AddPriceForRecipe.resx">
+      <DependentUpon>202108190754280_AddPriceForRecipe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202108190811502_UpdateTypePriceOfRecipeNull.resx">
+      <DependentUpon>202108190811502_UpdateTypePriceOfRecipeNull.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

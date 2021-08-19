@@ -48,7 +48,7 @@ namespace ProjectSem3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Name,Author,Description")] Recipe recipe)
+        public ActionResult Create([Bind(Include = "Id,Name,Author,Description, Price")] Recipe recipe)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +81,7 @@ namespace ProjectSem3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Name,Author, Description")] Recipe recipe)
+        public ActionResult Edit([Bind(Include = "Id,Name,Author, Description, Price")] Recipe recipe)
         {
             if (ModelState.IsValid)
             {
