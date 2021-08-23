@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\FeedbacksController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -236,6 +237,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\SaleEntities\Book.cs" />
+    <Compile Include="Models\SaleEntities\CartItem.cs" />
     <Compile Include="Models\SaleEntities\Feedback.cs" />
     <Compile Include="Models\SaleEntities\Order.cs" />
     <Compile Include="Models\SaleEntities\OrderDetail.cs" />
@@ -325,6 +327,9 @@
     <Content Include="Views\Payments\Details.cshtml" />
     <Content Include="Views\Payments\Edit.cshtml" />
     <Content Include="Views\Payments\Index.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Cart\Payment.cshtml" />
+    <Content Include="Views\Cart\OrderSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

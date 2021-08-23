@@ -18,6 +18,11 @@ namespace ProjectSem3
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            /*routes.MapRoute(
+                name: "Add To Cart",
+                url: "add-to-cart",
+                defaults: new { controller = "Cart", action = "AddItem", id = UrlParameter.Optional }
+            );*/
         }
     }
 }

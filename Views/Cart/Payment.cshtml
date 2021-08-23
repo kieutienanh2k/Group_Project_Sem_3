@@ -1,0 +1,88 @@
+﻿@using ProjectSem3.Models.SaleEntities;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    if (Session["CartSession"] != null)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>ID Product</td>
+                    <td>Name Product</td>
+                    <td>Image</td>
+                    <td>Quantity</td>
+                    <td>Unit Price</td>
+                    <td>Total Price</td>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int Total = 0;
+                }
+                @foreach (var item in (List<CartItem>)Session["CartSession"])
+                {
+                    int lineTotal = Convert.ToInt32(item.Quantity * item.Book.Price);
+                    Total = Convert.ToInt32(@Total + lineTotal);
+                    <tr>
+                        <td>@item.Book.Id</td>
+                        <td>@item.Book.Title</td>
+                        <td><img src="@item.Book.Image" width="60" /></td>
+                        <td><input type="text" name="quantity" value="@item.Quantity" readonly /></td>
+                        <td>@item.Book.Price</td>
+                        <td>@(item.Book.Price * item.Quantity)</td>
+                    </tr>
+                }
+                <tr>
+                    <td colspan="5" class="text-right"><b>Total: @Total</b></td>
+                </tr>
+
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <h4>No item in your cart!</h4>
+    }
+
+}
+<br />
+@model ProjectSem3.Models.SaleEntities.Payment
+@using (Html.BeginForm("ProcessOrder", "Cart", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>User Name: </td>
+            <td><input type="text" name="username" /></td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td><input type="text" name="email" /></td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td><input type="text" name="address" /></td>
+        </tr>
+        <tr>
+            <td>Description: </td>
+            <td><input type="text" name="description" /></td>
+        </tr>
+        <tr>
+            <td>Payment by: </td>
+            <td>
+                @*@Html.DropDownListFor(model => model.Id, null, new { htmlAttributes = new { @class = "form-control" } })*@
+                @*@Html.DropDownList("Form", (IEnumerable<SelectListItem>)ViewBag.Payments, "Select...")*@
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3"><input type="submit" value="Process Order" /></td>
+        </tr>
+
+    </table>
+}
+
+
+
+
+
