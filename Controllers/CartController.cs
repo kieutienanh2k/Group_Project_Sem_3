@@ -112,29 +112,43 @@ namespace ProjectSem3.Controllers
                 list = (List<CartItem>)cart;
             }
             //
-            /* ApplicationUser applicationUser = new ApplicationUser()
-             {
-                 UserName = fc["username"],
-                 Email = fc["email"],
-                 Address = fc["address"]
-             };*/
-            var userId = db.Users
-                .Where(m => m.Email == fc["email"])
-                .Select(m => m.Id)
-                .SingleOrDefault();
+            ApplicationUser applicationUser = new ApplicationUser()
+            {
+                UserName = fc["username"],
+                Email = fc["email"],
+                Address = fc["address"]
+            };
+            db.Users.Add(applicationUser);
+            db.SaveChanges();
 
             // 1.save into order
             Order order = new Order()
             {
-                UserId = userId,
+                UserId = applicationUser.Id,
                 DateOrder = DateTime.Now,
-                PaymentId = int.Parse(fc["Form"]),
+                Payment = fc["payment"],
                 Status = "da dat hang",
                 Description = fc["description"]
             };
+            db.Orders.Add(order);
+            db.SaveChanges();
 
 
             // 2.save into orderdetail
+            foreach (CartItem cartItem in list)
+            {
+                OrderDetail orderDetail = new OrderDetail()
+                {
+                    OrderId = order.Id,
+                    BookId = cartItem.Book.Id,
+                    Quantity = cartItem.Quantity,
+                    TotalPrice = cartItem.Book.Price
+                };
+                db.OrderDetails.Add(orderDetail);
+                db.SaveChanges();
+            }
+            // 3.Remove shopping cart session
+            Session.Remove(CartSession);
 
             return View("OrderSuccess");
         }

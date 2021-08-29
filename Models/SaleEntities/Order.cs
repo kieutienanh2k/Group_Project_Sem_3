@@ -14,12 +14,13 @@ namespace ProjectSem3.Models.SaleEntities
         public DateTime? DateOrder { get; set; }
         public string Status { get; set; }
         public string Description { get; set; }
+        public string Payment { get; set; }
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
 
-        [ForeignKey("Payment")]
+        /*[ForeignKey("Payment")]
         public int PaymentId { get; set; }
-        public Payment Payment { get; set; }
+        public Payment Payment { get; set; }*/
 
         public ICollection<OrderDetail> OrderDetails { get; set; }
 

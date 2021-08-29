@@ -48,7 +48,6 @@
 
 }
 <br />
-@model ProjectSem3.Models.SaleEntities.Payment
 @using (Html.BeginForm("ProcessOrder", "Cart", FormMethod.Post))
 {
     <table>
@@ -70,10 +69,14 @@
         </tr>
         <tr>
             <td>Payment by: </td>
-            <td>
-                @*@Html.DropDownListFor(model => model.Id, null, new { htmlAttributes = new { @class = "form-control" } })*@
-                @*@Html.DropDownList("Form", (IEnumerable<SelectListItem>)ViewBag.Payments, "Select...")*@
-            </td>
+            <td><input type="text" name="payment" /></td>
+       @* <td>
+            @Html.DropDownList("ddl3", new List<SelectListItem>
+                {
+                new SelectListItem {Text = "Shipper", Value = "1"},
+                new SelectListItem {Text = "COD", Value = "2"}
+                }, "--- Select ---")
+        </td>*@
         </tr>
         <tr>
             <td colspan="3"><input type="submit" value="Process Order" /></td>

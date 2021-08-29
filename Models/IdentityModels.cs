@@ -25,8 +25,6 @@ namespace ProjectSem3.Models
         public DbSet<Book> Books { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<Recipe> Recipes { get; set; }
         public DbSet<Feedback> Feedbacks { get; set; }
 
 

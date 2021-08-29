@@ -13,17 +13,6 @@ namespace ProjectSem3.Models.SaleEntities
         public Recipe Recipe { get; set; }*/
         public Book Book { get; set; }
         public int Quantity { get; set; }
-       /* public string BookName { get; set; }
-        public decimal UnitPrice { get; set; }
-        public decimal TotalPrice { get; set; }*/
-
-        /*[ForeignKey("Recipe")]
-        public int RecipeId { get; set; }
-        public Recipe Recipe { get; set; }
-
-        [ForeignKey("Book")]
-        public int BookId { get; set; }
-        public Book Book { get; set; }*/
 
     }
 }

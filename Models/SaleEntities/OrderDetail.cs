@@ -18,10 +18,6 @@ namespace ProjectSem3.Models.SaleEntities
         public int OrderId { get; set; }
         public Order Order { get; set; }
 
-        [ForeignKey("Recipe")]
-        public int RecipeId { get; set; }
-        public Recipe Recipe { get; set; }
-
         [ForeignKey("Book")]
         public int BookId { get; set; }
         public Book Book { get; set; }
