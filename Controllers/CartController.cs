@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace ProjectSem3.Controllers
 {
@@ -24,6 +25,7 @@ namespace ProjectSem3.Controllers
             }
             return View(list);
         }
+        [Authorize]
         public ActionResult AddItem(int bookId, int quantity)
         {
             Book book = db.Books.SingleOrDefault(n => n.Id == bookId);
@@ -111,20 +113,11 @@ namespace ProjectSem3.Controllers
             {
                 list = (List<CartItem>)cart;
             }
-            //
-            ApplicationUser applicationUser = new ApplicationUser()
-            {
-                UserName = fc["username"],
-                Email = fc["email"],
-                Address = fc["address"]
-            };
-            db.Users.Add(applicationUser);
-            db.SaveChanges();
 
             // 1.save into order
             Order order = new Order()
             {
-                UserId = applicationUser.Id,
+                UserId = User.Identity.GetUserId(),
                 DateOrder = DateTime.Now,
                 Payment = fc["payment"],
                 Status = "da dat hang",
@@ -147,6 +140,7 @@ namespace ProjectSem3.Controllers
                 db.OrderDetails.Add(orderDetail);
                 db.SaveChanges();
             }
+            
             // 3.Remove shopping cart session
             Session.Remove(CartSession);
 
